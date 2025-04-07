@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Christiana Thomas – Developer, Designer & Creative Technologist. View projects, resume, and contact.">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Christiana Thomas</title>
+    <!-- INTERNAL STYLING -->
+<style>
+/* * Google-fonts  */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Poppins:ital,wght@1,400;1,500&family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+/* Basic Reset */
+* {
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark and Light Mode Variables */
+:root {
+    --bg-color: #F9FAFF;
+    --text-color: #333;
+    --container-color: black;
+    --primary-color: #FDC435;
+}
+
+[data-theme="dark"] {
+    --bg-color:black;
+    --text-color: #fff;
+   
+}
+
+
+/* Navigation */
+.logo{
+    text-align: center;
+}
+#menuToggle
+{
+  display: block;
+  position: relative;
+  top: 50px;
+  left: 50px;
+  z-index: 1;
+  
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle a
+{
+  text-decoration: none;
+  color: #232323;
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:hover
+{
+  color: var(--primary-color)
+}
+
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  cursor: pointer;
+  
+  opacity: 0; /* hide this */
+  z-index: 2; 
+  
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick coffee
+ */
+#menuToggle span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background: #cdcdcd;
+  border-radius: 3px;
+  z-index: 1;
+  transform-origin: 4px 0px;
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the cups of coffee
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu
+{
+  position: absolute;
+  width: 300px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+/*
+ * And let's slide it in from the left
+ */
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+}
+
+/* Header */
+.header-section{
+    margin: 0px 0px;
+    padding: 50px;
+    background: var(--bg-color);
+}
+
+.name{
+    font-size: 43px;
+    width: 730px ;
+    margin-left: 100px;
+    letter-spacing: 3px;
+ }
+
+.title{
+    font-size: 28px;
+    margin-left: 100px;
+    color: var(--primary-color);
+    /* text-align: center; */
+    letter-spacing: 3px;
+
+}
+
+#theme-toggle{
+    width: 120px;
+    height: 24px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.btn button{
+    width: 180px;
+    height: 57px;
+    margin-left: 100px;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border: 2px black solid;
+    border-radius: 20px;
+
+}
+#boutme h1{
+    text-align: center;
+    margin-top: 200px;
+}
+.boutme{
+    margin: 15px 100px;
+    line-height: 34px;
+    letter-spacing: 2px;
+    width: 530px;
+    height: 200px;
+    
+}
+/* Skills Section */
+.skills-section {
+    padding: 80px 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.skills-section h2 {
+    font-size: 1.9rem;
+    text-align: center;
+    /* margin-bottom: 40px; */
+    letter-spacing: 3px;
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 30px;
+    max-width: 900px;
+    margin: 100px;
+}
+
+.skill-box {
+    background: #fff;
+    color: #000;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.skill-box i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.skill-box p {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.skill-box:hover {
+    transform: translateY(-10px);
+}
+
+/* Dark mode tweak */
+[data-theme="dark"] .skill-box {
+    background: #1e1e1e;
+    color: #fff;
+}
+
+.project {
+    display: flex;
+    background-color: white;
+    color: black;
+    box-shadow: 0px 0px 15px 0px;
+    justify-content: center;
+    margin: 20px  200px;
+    padding: 40px
+    
+    
+}
+.img img {
+    width: 440px;
+    height: 300px;
+    border-radius: 27px;
+    border: 2px solid black;
+}
+.float{
+    justify-content:center;
+    margin: 100px 100px;
+    
+}
+.float-2{
+    justify-content: space-around;
+    padding: 100px;
+}
+ /* Footer section */
+footer{
+     padding-bottom: 100px;
+     margin-top: 260px;
+}
+footer q{
+            color: #212A3F;
+            font-size: 35px;
+            margin-left: 12px;
+          } 
+footer owner{
+            color: #434F5B;
+            margin-left: 20px;
+            padding-left: 20px;
+        }
+#contact {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+
+/* Contact Section Styling */
+.contact-section {
+    /* background-color: #f9f9f9; */
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #333;
+    letter-spacing: 2px;
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #444;
+    transition: all 0.3s ease;
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #0077b5;
+    transition: transform 0.3s ease;
+}
+
+.contact-item a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-item:hover i {
+    transform: scale(1.2);
+}
+
+.contact-item:hover a {
+    color: #0077b5;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 600px) {
+    .contact-container {
+        flex-direction: column;
+    }
+
+    .contact-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* All right reserved */
+.right-reserved{
+        text-align: center;
+        margin-top: 70px;
+        font-size: 0.7rem;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+
+    }
+    .name{
+        font-size:24px ;
+        width: 330px;
+        font-weight: 700;
+    }
+    .boutme{
+        width: 415px;
+        height: 200px;
+    }
+    .btn button{
+        width: 140px;
+        height:37px;
+        margin-top: 70px;
+    }
+ .skills-section {
+    text-align: center;
+    display: block;
+    
+}
+
+.skill-box {
+   
+   
+    padding: 20px;
+    
+}
+
+.skill-box i {
+    font-size: 1.5rem;
+    
+}
+
+.skill-box p {
+    font-size: 0.7rem;
+}
+
+
+
+   
+    .project{
+        flex-direction: column;
+        justify-content: center;
+        margin: 50px 50px;
+        text-align: center;
+    
+}
+.img img {
+        width: 340px;
+        height: 290px;
+        margin-left: 48px;
+    }
+.float{
+    
+        margin: 50px 50px;
+    
+}
+.float-2{
+        justify-content: space-around;
+        padding: 100px;
+}
+
+}
+
+@media (max-width: 1130px) {
+.project {
+        flex-direction: column;
+        justify-content: center;
+        margin: 0px 50px;
+        text-align: center;
+    }
+
+    .skills-section {
+    text-align: center;
+    display: block;
+    
+}
+
+.skill-box {
+   padding: 20px;
+    
+}
+
+.skill-box i {
+    font-size: 1.8rem;
+    
+}
+
+.skill-box p {
+    font-size: 0.9rem;
+}
+
+
+
+  
+}
+    
+</style>
+</head>
+
+<!-- Hey you'd better give me an absolute beautiful body! 
+ You know I like to showoff -->
+<body>
+    <nav role="navigation">
+    <div id="menuToggle">
+      <input type="checkbox" />
+    <span></span>
+    <span></span>
+    <span></span>
+    <ul id="menu">
+      <a href="#about"><li>About</li></a>    
+      <a href="#projects"><li>Projects</li></a>       
+      <a href="#contact"><li>Contact</li></a>
+      <a href="#skills"><li>Skills</li></a>
+
+      <!-- oh I love adding this dark/light mode feature -->
+
+      <li><button id="theme-toggle">Dark Mode</button></li>
+    </ul>
+  </div>
+  <div class="logo">Christiana_Thomas</div>
+</nav>
+<!-- It's important you always close whatever tag you open -->
+
+<!-- Header section -->
+      <header>
+        <div class="header-section">
+            <!-- Job title -->
+            <P class="title">DEVELOPER/DESIGNER</P>
+
+            <!-- Introduction line -->
+            <p class="name">Hello, my name is Christiana Thomas</p>
+
+            <!-- About me description -->
+            <p class="boutme">Dedicated, quick starter, focused, responsible programmer with a curious mind. I enjoy designing tech websites and digital products. I love building things. I am 
+                most attracted to solving real customer problems with a business justification.</p>
+
+          <!-- Call to action button -->
+                <div class="btn">
+          <!-- Hire Me Button linking to contact section -->
+           <a href="#contact"><button class="hire" style="background: var(--primary-color); margin-right: -100px;">Hire me</button></a>
+
+            <!-- Resume Download Button -->
+            <a href="CHRISTIANA THOMAS full-stack pdf.pdf" target="_blank"><button class="resume">My resume </button></a> 
+
+        </div>
+        </div>
+        </header>
+        <!-- Skills Section -->
+ <h2 style="text-align: center;letter-spacing:5px;font-size: 1.9rem; margin-bottom: -100px; margin-top: 150px;">SKILLS</h2>
+<section id="skills" class="skills-section">
+   
+    <div class="skills-container">
+        <div class="skill-box">
+            <i class='bx bxl-html5' ></i>
+            <p>HTML</p>
+        </div>
+        <div class="skill-box">
+            <i class='bx bxl-css3' ></i>
+            <p>CSS</p>
+        </div>
+        <div class="skill-box">
+            <i class='bx bxl-javascript' ></i>
+            <p>JavaScript</p>
+        </div>
+       <div class="skill-box">
+            <i class='bx bxl-nodejs' ></i>
+            <p>Node.js</p>
+        </div>
+        <div class="skill-box">
+            <i class='bx bxl-php'></i> 
+            <p>PHP</p>
+          </div>
+          <div class="skill-box">
+            <i class='bx bxl-mysql'></i> 
+            <p>MySQL</p>          
+        </div>
+        <div class="skill-box">
+            <i class='bx bxl-git' ></i>
+            <p>Git</p>
+        </div>
+        <div class="skill-box">
+            <i class='bx bxl-figma'></i>
+            <p>Figma</p>
+        </div>
+    </div>
+</section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <!-- Projects Heading -->
+            <h2 style="margin-top: 100px; text-align: center; font-size: 2.3rem; letter-spacing: 4px;">PROJECTS</h2>
+            <!-- Individual Project Container -->
+            <div class="project">
+                <div class="img">
+                    <img src="images/meta.png" alt="Screenshot of MetaMesh Web3 decentralized app">
+
+                </div>
+                <!-- Project Description and Link -->
+                <div class="float">
+                <h3>Web3 App (MetaMesh)</h3>
+                <p>A blockchain-powered decentralized application.</p>
+                <!-- Link to Live Project -->
+                <a href="https://metamesh-web3.vercel.app/index.html" target="_blank">View Project</a>
+            </div>
+            </div>
+        
+            <div class="project">
+                <div class="float-2">
+                    <!-- Project Description and Link -->
+                <h3>Innovate Her official site</h3>
+                <p>An NGO website that focuses on empowering girls with tech skills.</p>
+                 <!-- Link to Live Project -->
+                <a href="https://innovat-her-her.vercel.app/" target="_blank">View Project</a>
+            </div>
+            <div class="img">
+                <img src="images/her.png" alt="Screenshot of InnovateHer app">
+            </div>
+            </div>
+            <div class="project">
+                <div class="img">
+                    <img src="images/3.png" alt="Screenshot of a Music App">
+                </div>
+                <div class="float">
+                <h3>Music App</h3>
+                <p>A music app that contains several songs.</p>
+                 <!-- Link to Live Project -->
+                <a href="https://music-ap.vercel.app/" target="_blank">View Project</a>
+            </div>
+            </div>
+        </section>
+        
+ <footer>
+            <q>What separates design from art is that design is meant to be… functional. </q>
+            <p class="owner"> -Cameron Moll</p>
+        <!-- Contact Section -->
+<section id="contact" class="contact-section">
+    <!-- <h2>Contact Me</h2> -->
+    <div class="contact-container">
+        <!-- Phone -->
+        <div class="contact-item">
+            <i class='bx bx-phone'></i>
+            <a href="tel:+2348132742593">+234 813 274 2593</a>
+        </div>
+
+        <!-- Email -->
+        <div class="contact-item">
+            <i class='bx bx-envelope'></i>
+            <a href="mailto:internetaunt@gmail.com">internetaunt@gmail.com</a>
+        </div>
+
+        <!-- LinkedIn -->
+        <div class="contact-item">
+            <i class='bx bxl-linkedin'></i>
+            <a href="https://linkedin.com/in/christiana-thomas" target="_blank">
+                linkedin.com/in/christiana-thomas
+            </a>
+        </div>
+    </div>
+</section>
+        <div class="right-reserved">&copy; 2025 christiana-thomas. All rights reserved.
+        </div>
+        
+        
+        </footer>
+      
+ <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+       // Dark/Light mode toggle
+       const themeToggle = document.getElementById("theme-toggle");
+    themeToggle.addEventListener("click", () => {
+        const currentTheme = document.documentElement.getAttribute("data-theme");
+        document.documentElement.setAttribute(
+            "data-theme",
+            currentTheme === "dark" ? "light" : "dark"
+        );
+        themeToggle.textContent = currentTheme === "dark" ? "Dark Mode" : "Light Mode";
+    });
+});
+</script>
+
+</body>
+
+</html>
